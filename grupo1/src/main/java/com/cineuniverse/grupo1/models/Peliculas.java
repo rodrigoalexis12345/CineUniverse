@@ -16,7 +16,7 @@ public class Peliculas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPelicula")
-    private Integer idPelicula;
+    private Long idPelicula;
 
     @Column(name = "titulo", length = 150)
     private String titulo;
@@ -43,11 +43,11 @@ public class Peliculas {
     private LocalDate fechaEstreno;
 
     // Getters y setters
-    public Integer getIdPelicula() {
+    public Long getIdPelicula() {
         return idPelicula;
     }
 
-    public void setIdPelicula(Integer idPelicula) {
+    public void setIdPelicula(Long idPelicula) {
         this.idPelicula = idPelicula;
     }
 

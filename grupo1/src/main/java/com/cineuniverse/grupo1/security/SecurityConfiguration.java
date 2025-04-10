@@ -12,7 +12,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/index.html", "/static/**", "/css/**", "/js/**", "/images/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
+                        .requestMatchers("/","/home","/peliculas/{id}", "/static/**", "/css/**", "/js/**", "/img/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
                         .anyRequest().authenticated() // Requiere autenticación para cualquier otra ruta
                 )
                 .formLogin((form) -> form

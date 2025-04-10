@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cineuniverse.grupo1.models.Peliculas;
 
 @Repository
-public interface PeliculaRepository extends JpaRepository<Peliculas, Integer>{
+public interface PeliculaRepository extends JpaRepository<Peliculas, Long>{
     
 }
