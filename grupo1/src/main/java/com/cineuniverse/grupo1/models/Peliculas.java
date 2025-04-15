@@ -42,6 +42,9 @@ public class Peliculas {
     @Column(name = "fecha_estreno")
     private LocalDate fechaEstreno;
 
+    @Column(name = "imagenHorizontal")
+    private String imagenHorizontal;
+
     // Getters y setters
     public Long getIdPelicula() {
         return idPelicula;
@@ -113,5 +116,13 @@ public class Peliculas {
 
     public void setFechaEstreno(LocalDate fechaEstreno) {
         this.fechaEstreno = fechaEstreno;
+    }
+
+    public String getImagenHorizontal() {
+        return imagenHorizontal;
+    }
+
+    public void setImagenHorizontal(String imagenHorizontal) {
+        this.imagenHorizontal = imagenHorizontal;
     }
 }

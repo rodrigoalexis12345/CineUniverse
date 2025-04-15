@@ -18,7 +18,7 @@ public class Reservas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReservas")
-    private Integer idReserva;
+    private Long idReserva;
 
     @ManyToOne
     @JoinColumn(name = "Funciones_idFunciones", nullable = false)
@@ -35,11 +35,11 @@ public class Reservas {
     private LocalDateTime fechaHoraReserva;
 
     // Getters y setters
-    public Integer getIdReserva() {
+    public Long getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(Integer idReserva) {
+    public void setIdReserva(Long idReserva) {
         this.idReserva = idReserva;
     }
 

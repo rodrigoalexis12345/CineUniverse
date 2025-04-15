@@ -12,11 +12,11 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/","/home","/peliculas/{id}", "/static/**", "/css/**", "/js/**", "/img/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
+                        .requestMatchers("/","/home","/dulceria","/peliculas/{id}","/peliculas/listarPeliculas","/dulceria/{id}","/dulceria/listarProductos","/estreno","/registroUsuario", "/css/**", "/js/**","/img/**","/resources/**","/mdbootstrap/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
                         .anyRequest().authenticated() // Requiere autenticación para cualquier otra ruta
                 )
                 .formLogin((form) -> form
-                        .loginPage("/login") // Especifica tu página de login personalizada (opcional)
+                        .loginPage("/loginUsuario") // Especifica tu página de login personalizada (opcional)
                         .permitAll() // Permite acceso a la página de login a todos
                 )
                 .logout((logout) -> logout.permitAll()); // Permite acceso al logout a todos

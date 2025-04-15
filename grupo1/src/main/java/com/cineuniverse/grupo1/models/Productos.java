@@ -14,7 +14,7 @@ public class Productos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProducto")
-    private Integer idProducto;
+    private Long idProducto;
 
     @Column(name = "nombreProducto", length = 45)
     private String nombreProducto;
@@ -28,12 +28,15 @@ public class Productos {
     @Column(name = "stock")
     private Integer stock;
 
+    @Column(name = "imagen")
+    private String imagen;
+
     // Getters y setters
-    public Integer getIdProducto() {
+    public Long getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Integer idProducto) {
+    public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -67,5 +70,13 @@ public class Productos {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Integer imagen) {
+        this.stock = imagen;
     }
 }

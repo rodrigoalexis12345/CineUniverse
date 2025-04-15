@@ -22,11 +22,11 @@ public class Funciones {
     private Integer idFuncion;
 
     @ManyToOne
-    @JoinColumn(name = "Peliculas_idPeliculas", nullable = false)
+    @JoinColumn(name = "Peliculas_idPelicula", nullable = false)
     private Peliculas pelicula;
 
     @ManyToOne
-    @JoinColumn(name = "Salas_idSalas", nullable = false)
+    @JoinColumn(name = "Salas_idSala", nullable = false)
     private Salas sala;
 
     @Column(name = "fecha", columnDefinition = "DATE")

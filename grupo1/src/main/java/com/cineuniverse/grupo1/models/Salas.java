@@ -14,7 +14,7 @@ public class Salas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idSala")
-    private Integer idSala;
+    private Long idSala;
 
     @Column(name = "nombre", length = 45)
     private String nombre;
@@ -26,11 +26,11 @@ public class Salas {
     private Short tipo;
 
     // Getters y setters
-    public Integer getIdSala() {
+    public Long getIdSala() {
         return idSala;
     }
 
-    public void setIdSala(Integer idSala) {
+    public void setIdSala(Long idSala) {
         this.idSala = idSala;
     }
 

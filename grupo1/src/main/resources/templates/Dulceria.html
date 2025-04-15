@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cine Universe - Dulcería</title> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link th:href="@{/mdbootstrap/css/mdb.min.css}" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            /* Puedes mantener tus estilos globales si los necesitas */
+            body {
+                background-color: #f8f9fa;
+                display: flex; /* Para asegurar que el footer quede abajo */
+                flex-direction: column; /* Apilar contenido verticalmente */
+                min-height: 100vh; /* Mínimo alto de la ventana */
+            }
+
+            .container {
+                flex-grow: 1; /* Permite que el contenedor principal crezca */
+            }
+
+            .card {
+                /* Estilos opcionales para las tarjetas */
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
+            .card:hover {
+                transform: translateY(-5px); /* Efecto hover sutil */
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            .card-img-top {
+                aspect-ratio: 1 / 1; /* Mantiene la imagen cuadrada */
+                object-fit: cover; /* Asegura que la imagen cubra el espacio */
+            }
+        </style>
+    </head>
+
+    <body>
+
+<!-- Fragmento Navbar -->
+<div th:fragment="navbar" class="w-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img th:src="@{/img/logo_CineUniverse.jpg}" alt="Logo" width="120" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/peliculas/listarPeliculas}">Películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/dulceria/listarProductos}">Dulcería</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="btn btn-primary" th:href="@{/loginUsuario}">Iniciar Sesion</a>
+                    <a class="btn btn-primary" th:href="@{/registroUsuario}">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">Bienvenido a nuestra Dulcería</h1>
+            <p class="text-center text-muted mb-5">Disfruta de los mejores dulces y snacks mientras ves tu película favorita.</p>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+                <div class="col" th:each="productos : ${productos}">
+                    <div class="card h-100 shadow-sm">
+                        <img th:src="${productos.imagen}" class="card-img-top" alt="Palomitas">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" th:text="${productos.nombreProducto}"></h5>
+                            <p class="card-text" th:text="${productos.descripcion}"></p>
+                            <p class="fw-bold fs-5 text-primary mb-3"  th:text="'S/' + ${productos.precio}"></p> <a th:href="@{/rodrigo}" class="btn btn-primary mt-auto">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div> </div> 
+            <!-- Fragmento Footer -->
+            <footer class="bg-light text-center text-lg-start mt-5 shadow-sm">
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Cine Universe</h5>
+                            <p>
+                                ¡Disfruta de las mejores películas y promociones solo en Cine Universe!
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Enlaces</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#" class="text-dark">Términos y condiciones</a></li>
+                                <li><a href="#" class="text-dark">Política de privacidad</a></li>
+                                <li><a href="#" class="text-dark">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-3 bg-dark text-white">
+                    © 2025 Cine Universe. Todos los derechos reservados.
+                </div>
+            </footer>
+
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
